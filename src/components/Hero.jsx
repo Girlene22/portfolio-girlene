@@ -1,4 +1,5 @@
 import heroImg from "../assets/hero-sphere-red.png";
+import Title from "./Title";
 
 function Hero() {
   return (
@@ -9,9 +10,7 @@ function Hero() {
       {/* Texto principal */}
       <div className="hero-text max-w-xl text-center md:text-left">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">Girlene Pereira</h1>
-        <h2 className="text-2xl md:text-3xl text-[--secondary] mb-6">
-          Desenvolvedora Front-end
-        </h2>
+        <Title>Desenvolvedora Front-end</Title>
 
         <p className="mb-6 text-lg">
           Desenvolvendo interfaces modernas com foco em usabilidade e soluções

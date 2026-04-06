@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
 import cardapioImg from "../assets/cardapio-olinda.png";
+import Title from "./Title";
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -45,7 +46,7 @@ function Projects() {
 
   return (
     <section id="projects" className="py-20 px-5">
-      <h2 className="text-3xl font-bold mb-10 text-[--secondary]">Projetos</h2>
+      <Title>Projetos</Title>
 
       {/* Grid de projetos */}
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

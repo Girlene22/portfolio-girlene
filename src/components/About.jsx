@@ -1,5 +1,5 @@
 import foto from "../assets/foto-sobre.jpg";
-import Title from "./Title"; // Componente de título
+import Title from "./Title";
 
 function About() {
   return (

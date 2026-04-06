@@ -49,6 +49,7 @@ html {
 button:first-child {
   background-color: var(--primary);
   color: var(--text);
+  border: none;
 }
 
 button:last-child {

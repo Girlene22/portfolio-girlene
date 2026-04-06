@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import Title from "./Title"; // Importando o componente Title
+import Title from "./Title";
 
 function Contact() {
   return (
