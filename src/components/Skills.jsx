@@ -29,7 +29,7 @@ function Skills() {
       className="min-h-screen flex flex-col justify-center items-center px-5 text-center"
     >
       {/* Título da seção usando o componente Title */}
-      <Title>Skills</Title>
+      <Title variant="ExtraLargeMargin">Skills</Title>
 
       {/* Container das skills */}
       <div className="flex flex-wrap justify-center gap-10 max-w-4xl">

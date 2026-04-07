@@ -1,56 +1,80 @@
+import Button from "./Button";
+
 function ProjectDetail({ project, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-      <div className="bg-neutral-900 p-6 md:p-8 rounded-xl max-w-lg w-full relative">
-        {/* Botão fechar */}
+      <div
+        className="
+        bg-[color:var(--bg)]
+        p-6
+        md:p-8
+        rounded-xl
+        max-w-lg
+        w-full
+        relative
+      "
+      >
+        {/* botão fechar */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-300 hover:text-white"
+          className="
+            absolute
+            top-3
+            right-3
+            font-bold
+            text-white/70
+            hover:text-red-700
+            text-xl
+          "
         >
           ✕
         </button>
 
-        {/* Imagem do projeto */}
+        {/* imagem */}
         {project.image && (
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-64 object-cover rounded-md mb-4"
+            className="
+              w-full
+              h-64
+              object-cover
+              rounded-md
+              mb-4
+            "
           />
         )}
 
-        {/* Título */}
-        <h3 className="text-2xl font-bold mb-2 text-[--secondary]">
+        {/* título */}
+        <h3
+          className="
+          text-2xl
+          font-bold
+          mb-2
+          text-[color:var(--secondary)]
+        "
+        >
           {project.title}
         </h3>
 
-        {/* Tecnologias */}
-        <p className="mb-4 text-gray-400">{project.tech}</p>
+        {/* tecnologias */}
+        <p className="mb-4 text-white/80">{project.tech}</p>
 
-        {/* Descrição */}
-        <p className="mb-4">{project.description}</p>
+        {/* descrição */}
+        <p className="mb-6 text-white/90">{project.description}</p>
 
-        {/* Links */}
-        <div className="flex gap-4 flex-wrap">
-          {project.repo && (
-            <a
-              href={project.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-[--primary] text-white rounded-lg hover:opacity-90 transition"
-            >
-              Repositório
-            </a>
-          )}
+        {/* botões */}
+        <div className="flex gap-3 flex-wrap">
           {project.deploy && (
-            <a
-              href={project.deploy}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-[--primary] text-[--primary] rounded-lg hover:bg-[--primary] hover:text-white transition"
-            >
+            <Button href={project.deploy} target="_blank" variant="outline">
               Deploy
-            </a>
+            </Button>
+          )}
+
+          {project.repo && (
+            <Button href={project.repo} target="_blank" variant="link">
+              Repositório
+            </Button>
           )}
         </div>
       </div>

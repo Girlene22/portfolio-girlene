@@ -5,13 +5,59 @@
 :root {
   --bg: #0b0b0b;
   --text: #ffffff;
-  --primary: #740000ff;
+  --primary: rgb(179, 5, 5);
   --secondary: #d4af37;
+  --wine: #740000ff;
 }
 
 body {
-  background-color: var(--bg);
+  background-color: #000;
+
+  background-image:
+
+    /* spotlight deslocado para baixo (fim da hero) */
+    radial-gradient(
+      circle at 50% 38%,
+      rgba(179, 5, 5, 0.16) 0%,
+      rgba(116, 0, 0, 0.08) 28%,
+      transparent 60%
+    ),
+    /* manchas bem sutis nas bordas */
+    radial-gradient(
+        circle at 15% 70%,
+        rgba(116, 0, 0, 0.07) 0%,
+        transparent 65%
+      ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(179, 5, 5, 0.06) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 20% 95%,
+      rgba(116, 0, 0, 0.05) 0%,
+      transparent 75%
+    ),
+    radial-gradient(
+      circle at 90% 95%,
+      rgba(179, 5, 5, 0.05) 0%,
+      transparent 75%
+    );
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
   color: var(--text);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.04;
 }
 
 html {
@@ -44,17 +90,6 @@ html {
 .hero-image img {
   width: 100%;
   height: auto;
-}
-
-button:first-child {
-  background-color: var(--primary);
-  color: var(--text);
-  border: none;
-}
-
-button:last-child {
-  border: 1px solid var(--primary);
-  color: var(--primary);
 }
 
 .header {

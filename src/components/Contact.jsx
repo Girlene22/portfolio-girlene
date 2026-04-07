@@ -9,13 +9,13 @@ function Contact() {
       className="py-20 px-5 flex flex-col items-center justify-center text-center"
     >
       {/* Título da seção usando o componente Title */}
-      <Title>Contato</Title>
+      <Title variant="ExtraLargeMargin">Contato</Title>
 
       {/* Container dos links */}
       <div className="flex flex-row flex-wrap justify-center gap-8 text-lg">
         {/* Email */}
         <a
-          href="mailto:seuemail@email.com"
+          href="mailto:girlene.pereiram@gmail.com"
           className="flex items-center gap-2 hover:text-[--primary] transition"
         >
           <FaEnvelope />
@@ -24,7 +24,7 @@ function Contact() {
 
         {/* GitHub */}
         <a
-          href="https://github.com/seuusuario"
+          href="https://github.com/Girlene22"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 hover:text-[--primary] transition"
@@ -35,7 +35,7 @@ function Contact() {
 
         {/* LinkedIn */}
         <a
-          href="https://linkedin.com/in/seuusuario"
+          href="https://www.linkedin.com/in/girlene-pereira"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 hover:text-[--primary] transition"

@@ -4,7 +4,7 @@ import Title from "./Title";
 function About() {
   return (
     <section
-      id="sobre"
+      id="about"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-5 py-20 gap-10 text-center md:text-left"
     >
       {/* Foto */}
