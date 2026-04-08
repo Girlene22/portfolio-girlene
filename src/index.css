@@ -9,6 +9,12 @@
   --secondary: #d4af37;
   --wine: #740000ff;
 }
+.light {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --primary: #740000ff;
+  --secondary: #111111;
+}
 
 body {
   background-color: #000;
@@ -156,4 +162,10 @@ html {
 
 .about-text {
   max-width: 500px;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
 }
