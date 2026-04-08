@@ -32,10 +32,10 @@ function Hero() {
 
         {/* Botões */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button onClick={() => scrollToSection("projects")}>
+          <Button className="btn-primary" onClick={() => scrollToSection("projects")}>
             Ver projetos
           </Button>
-          <Button variant="outline" onClick={() => scrollToSection("contact")}>
+          <Button className="btn-outline" variant="outline" onClick={() => scrollToSection("contact")}>
             Contato
           </Button>
         </div>

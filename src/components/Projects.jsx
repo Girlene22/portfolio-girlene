@@ -75,7 +75,7 @@ function Projects() {
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 px-5">
+    <section id="projects" className=" py-20 px-5">
       {/* título centralizado */}
       <div className="text-center">
         <Title>Projetos</Title>

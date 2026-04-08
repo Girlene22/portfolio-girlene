@@ -2,18 +2,20 @@ import Button from "./Button";
 
 function ProjectDetail({ project, onClose }) {
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50">
+      
       <div
         className="
-        bg-[color:var(--bg)]
-        p-6
-        md:p-8
-        rounded-xl
-        max-w-lg
-        w-full
-        relative
-      "
+          modal-theme
+          p-6
+          md:p-8
+          rounded-xl
+          max-w-lg
+          w-full
+          relative
+        "
       >
+
         {/* botão fechar */}
         <button
           onClick={onClose}
@@ -21,14 +23,16 @@ function ProjectDetail({ project, onClose }) {
             absolute
             top-3
             right-3
-            font-bold
-            text-white/70
-            hover:text-red-700
+            text-[color:var(--text-soft)]
+            hover:text-[color:var(--primary)]
             text-xl
+            font-bold
+            transition
           "
         >
           ✕
         </button>
+
 
         {/* imagem */}
         {project.image && (
@@ -45,38 +49,67 @@ function ProjectDetail({ project, onClose }) {
           />
         )}
 
+
         {/* título */}
         <h3
           className="
-          text-2xl
-          font-bold
-          mb-2
-          text-[color:var(--secondary)]
-        "
+            text-2xl
+            font-bold
+            mb-2
+            text-[color:var(--secondary)]
+          "
         >
           {project.title}
         </h3>
 
+
         {/* tecnologias */}
-        <p className="mb-4 text-white/80">{project.tech}</p>
+        <p
+          className="
+            mb-4
+            text-[color:var(--text-soft)]
+          "
+        >
+          {project.tech}
+        </p>
+
 
         {/* descrição */}
-        <p className="mb-6 text-white/90">{project.description}</p>
+        <p
+          className="
+            mb-6
+            text-[color:var(--text)]
+          "
+        >
+          {project.description}
+        </p>
+
 
         {/* botões */}
         <div className="flex gap-3 flex-wrap">
+
           {project.deploy && (
-            <Button href={project.deploy} target="_blank" variant="outline">
+            <Button
+              href={project.deploy}
+              target="_blank"
+              variant="outline"
+            >
               Deploy
             </Button>
           )}
 
           {project.repo && (
-            <Button href={project.repo} target="_blank" variant="link">
+            <Button
+              href={project.repo}
+              target="_blank"
+              variant="link"
+            >
               Repositório
             </Button>
           )}
+
         </div>
+
       </div>
     </div>
   );

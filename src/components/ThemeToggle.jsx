@@ -4,11 +4,14 @@ function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("theme") || "dark";
 
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("light", savedTheme === "light");
+    setTheme(savedTheme);
+
+    if (savedTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
     }
   }, []);
 
@@ -17,28 +20,62 @@ function ThemeToggle() {
 
     setTheme(newTheme);
 
-    document.documentElement.classList.toggle("light", newTheme === "light");
+    if (newTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
 
     localStorage.setItem("theme", newTheme);
   }
 
   return (
     <button
-      onClick={toggleTheme}
-      className="
-        ml-4
-        text-xl
-        border
-        border-[color:var(--primary)]
-        rounded-lg
-        p-2
-        hover:bg-[color:var(--primary)]
-        hover:text-white
-        transition
-      "
-    >
-      {theme === "dark" ? "☀️" : "🌙"}
-    </button>
+  onClick={toggleTheme}
+  className={`
+    relative
+    w-14
+    h-7
+    rounded-full
+    border
+    border-[color:var(--text)]
+    transition
+    duration-300
+    flex
+    items-center
+    px-1
+    ${theme === "light" ? "bg-[color:var(--primary)]" : "bg-black"}
+  `}
+>
+
+  {/* ícones */}
+  <span className="absolute left-1 text-sm">
+    ☀️
+  </span>
+
+  <span className="absolute right-1 text-sm text-white">
+    🌙
+  </span>
+
+
+  {/* bolinha */}
+  <span
+    className={`
+      w-4
+      h-4
+      bg-white
+      rounded-full
+      shadow
+      transform
+      transition
+      duration-300
+      ${theme === "light"
+        ? "translate-x-0"
+        : "translate-x-7"}
+    `}
+  />
+
+</button>
   );
 }
 
