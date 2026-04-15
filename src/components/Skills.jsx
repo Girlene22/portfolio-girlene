@@ -38,7 +38,7 @@ function Skills() {
           // Item individual
           <div
             key={skill.name}
-            className="flex flex-col items-center gap-2 text-[--secondary] transition hover:scale-110 hover:text-[color:var(--primary)]"
+            className="flex flex-col items-center gap-2 text-[--secondary] transition hover:scale-110 hover:text-[color:var(--primary-hover)]"
           >
             {/* Ícone */}
             <span className="text-3xl">{skill.icon}</span>
