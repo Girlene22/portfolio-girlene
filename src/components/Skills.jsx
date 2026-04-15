@@ -5,6 +5,7 @@ import {
   FaCss3Alt,
   FaGitAlt,
   FaGithub,
+  FaLink
 } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import Title from "./Title";
@@ -19,7 +20,7 @@ function Skills() {
     { name: "Tailwind", icon: <SiTailwindcss /> },
     { name: "Git", icon: <FaGitAlt /> },
     { name: "GitHub", icon: <FaGithub /> },
-    { name: "APIs", icon: "🔗" },
+    { name: "APIs", icon: <FaLink /> },
   ];
 
   return (
@@ -37,10 +38,11 @@ function Skills() {
           // Item individual
           <div
             key={skill.name}
-            className="flex flex-col items-center gap-2 text-[--secondary] transition hover:scale-110"
+            className="flex flex-col items-center gap-2 text-[--secondary] transition hover:scale-110 hover:text-[color:var(--primary-hover)]"
           >
             {/* Ícone */}
             <span className="text-3xl">{skill.icon}</span>
+
             {/* Nome da skill */}
             <span className="text-sm">{skill.name}</span>
           </div>

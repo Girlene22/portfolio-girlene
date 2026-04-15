@@ -4,6 +4,8 @@ import ProjectDetail from "./ProjectDetail";
 import cardapioImg from "../assets/cardapio-olinda.png";
 import bugSmashImg from "../assets/bug-smash.png";
 import tradutorImg from "../assets/tradutor.png";
+import chaleHotel from "../assets/chale-hotel.png";
+import orcamentoPessoal from "../assets/app-personal-budget.png";
 
 import Title from "./Title";
 import Button from "./Button";
@@ -41,6 +43,24 @@ function Projects() {
       deploy: "https://girlene22.github.io/bug-smash/",
     },
     {
+      title: "Chalé Hotel",
+      image: chaleHotel,
+      description:
+        "Site para um hotel desenvolvido para apresentar informações institucionais e permitir interação do usuário com funcionalidades básicas de acesso e reserva.",
+      tech: "JavaScript, HTML, CSS, Bootstrap",
+      repo: "https://github.com/Girlene22/chalehotel",
+      deploy: "https://girlene22.github.io/chalehotel/index.html",
+    },
+    {
+      title: "Controle de Orçamento Pessoal",
+      image: orcamentoPessoal,
+      description:
+        "Aplicação web de controle de orçamento pessoal, que permite ao usuário registrar, consultar, filtrar e remover despesas diretamente no navegador.",
+      tech: "JavaScript, HTML, CSS (Bootstrap), LocalStorage",
+      repo: "https://github.com/Girlene22/App-Personal-Budget",
+      deploy: "https://girlene22.github.io/App-Personal-Budget/index.html",
+    },
+    {
       title: "Lista de Tarefas",
       image: "",
       description:
@@ -55,7 +75,7 @@ function Projects() {
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 px-5">
+    <section id="projects" className=" py-20 px-5">
       {/* título centralizado */}
       <div className="text-center">
         <Title>Projetos</Title>

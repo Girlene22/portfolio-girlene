@@ -5,6 +5,7 @@ function Button({
   variant = "primary",
   target = "_self",
 }) {
+
   const baseStyle = `
     px-4
     py-2
@@ -15,32 +16,33 @@ function Button({
   `;
 
   const variants = {
+
     primary: `
-    bg-[color:var(--primary)]
-    text-[color:var(--text)]
-    border
-    border-[color:var(--primary)]
-    hover:opacity-90
-  `,
+      bg-[color:var(--primary)]
+      text-white
+      border
+      border-[color:var(--primary)]
+      hover:bg-[color:var(--primary-hover)]
+    `,
 
     outline: `
-    border
-    border-[color:var(--primary)]
-    text-[color:var(--primary)]
-    hover:bg-[color:var(--primary)]
-    hover:text-[color:var(--text)]
-  `,
+      border
+      border-[color:var(--primary)]
+      text-[color:var(--primary)]
+      hover:bg-[color:var(--primary)]
+      hover:text-white
+    `,
 
     link: `
-    text-sm
-    text-[color:var(--secondary)]
-    hover:text-[color:var(--primary)]
-    bg-transparent
-    border-none
-    px-0
-    py-0
-    rounded-none
-  `,
+      text-sm
+      text-[color:var(--secondary)]
+      hover:text-[color:var(--primary)]
+      bg-transparent
+      border-none
+      px-0
+      py-0
+      rounded-none
+    `,
   };
 
   const className = `${baseStyle} ${variants[variant]}`;

@@ -5,9 +5,16 @@ function Contact() {
   return (
     // Seção de contato, altura automática e espaçamento interno
     <section
-      id="contact"
-      className="py-20 px-5 flex flex-col items-center justify-center text-center"
-    >
+  id="contact"
+  className="
+    min-h-screen
+    px-5
+    flex flex-col
+    items-center
+    justify-center
+    text-center
+  "
+>
       {/* Título da seção usando o componente Title */}
       <Title variant="ExtraLargeMargin">Contato</Title>
 
