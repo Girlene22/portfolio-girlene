@@ -36,14 +36,15 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button
+          <Button 
             className="btn-primary"
             onClick={() => scrollToSection("projects")}
           >
-            Ver projetos
+            Projetos
           </Button>
+          
 
-          <Button
+          <Button variant="outline"
             className="btn-outline"
             onClick={() => scrollToSection("contact")}
           >

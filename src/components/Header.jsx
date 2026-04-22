@@ -33,43 +33,29 @@ function Header() {
 
 
   return (
-    <header className="header header-theme">
+    <header className="header">
+  <div className="header-container">
+    
+    <div className="logo">
+      <img
+        src={theme === "light" ? logoLight : logoDark}
+        alt="Logo"
+        className="logo-img"
+      />
+    </div>
 
-      <div className="logo">
-        <img
-          src={theme === "light" ? logoLight : logoDark}
-          alt="Logo"
-          className="logo-img"
-        />
-      </div>
+    <nav>
+      <ul className="flex items-center gap-6">
+        <li><a href="#home" className="nav-link">Início</a></li>
+        <li><a href="#about" className="nav-link">Sobre</a></li>
+        <li><a href="#projects" className="nav-link">Projetos</a></li>
+        <li><a href="#contact" className="nav-link">Contato</a></li>
+        <li><ThemeToggle /></li>
+      </ul>
+    </nav>
 
-      <nav>
-        <ul className="flex items-center">
-
-          <li>
-            <a href="#home" className="nav-link">Início</a>
-          </li>
-
-          <li>
-            <a href="#about" className="nav-link">Sobre</a>
-          </li>
-
-          <li>
-            <a href="#projects" className="nav-link">Projetos</a>
-          </li>
-
-          <li>
-            <a href="#contact" className="nav-link">Contato</a>
-          </li>
-
-          <li>
-            <ThemeToggle />
-          </li>
-
-        </ul>
-      </nav>
-
-    </header>
+  </div>
+</header>
   );
 }
 

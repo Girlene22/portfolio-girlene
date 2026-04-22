@@ -128,9 +128,9 @@ function Projects() {
       {/* botão ver mais */}
       {projects.length > 3 && (
         <div className="text-center mt-10">
-          <Button variant="primary" onClick={() => setShowAll(!showAll)}>
-            {showAll ? "Ver menos" : "Ver mais projetos"}
-          </Button>
+          <Button variant="outline" onClick={() => setShowAll(!showAll)}>
+  {showAll ? "Ver menos" : "Ver mais projetos"}
+</Button>
         </div>
       )}
 
