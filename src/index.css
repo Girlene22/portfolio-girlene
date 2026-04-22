@@ -63,7 +63,8 @@
   --surface: #ffffff;
   --surface-soft: #f8f8f8;
 
-  --header-bg: rgba(255,255,255,0.75);
+ 
+  --header-bg: rgba(244, 114, 182, 0.15);
 
   --border: rgba(0,0,0,0.08);
 
@@ -128,31 +129,32 @@ html {
 /* ===================== */
 
 .header {
-
   position: fixed;
-
   top: 0;
-
   left: 0;
-
   width: 100%;
 
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
-  padding: 20px 5%;
+  padding: 20px clamp(16px, 4vw, 80px);
 
   background: var(--header-bg);
-
   backdrop-filter: blur(10px);
-
   border-bottom: 1px solid var(--border);
-
   z-index: 50;
+}
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
 }
 /* HEADER no modo light */
 .light .header-theme {
