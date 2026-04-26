@@ -50,7 +50,7 @@
 .light {
 
   --bg: #ffffff;
-  --bg-soft: #f5f5f5;
+  --bg-rose: #f7d0d0;
 
   --text: #1a1a1a;
   --text-soft: #555555;
@@ -145,17 +145,7 @@ html {
   border-bottom: 1px solid var(--border);
   z-index: 50;
 }
-.header-container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 0 auto;
-}
 /* HEADER no modo light */
 .light .header-theme {
 
