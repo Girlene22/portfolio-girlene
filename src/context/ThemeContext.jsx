@@ -3,31 +3,40 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
+
+    const savedTheme = localStorage.getItem("theme") || "light";
+
     setTheme(savedTheme);
 
-    if (savedTheme === "light") {
-      document.documentElement.classList.add("light");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("light");
+      document.documentElement.classList.remove("dark");
     }
+
   }, []);
 
   function toggleTheme() {
-    const newTheme = theme === "dark" ? "light" : "dark";
+
+    const newTheme =
+      theme === "light"
+        ? "dark"
+        : "light";
 
     setTheme(newTheme);
 
-    if (newTheme === "light") {
-      document.documentElement.classList.add("light");
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("light");
+      document.documentElement.classList.remove("dark");
     }
 
     localStorage.setItem("theme", newTheme);
+
   }
 
   return (

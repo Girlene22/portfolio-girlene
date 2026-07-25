@@ -1,10 +1,23 @@
-function Title({ children, variant = "default", className = "" }) {
+function Title({
+  children,
+  variant = "default",
+  color = "secondary",
+  className = "",
+}) {
+
   const baseStyle = `
     text-3xl
-    text-[color:var(--secondary)]
   `;
 
+  const colors = {
+  secondary: "text-[color:var(--secondary)]",
+  white: "text-white",
+  primary: "text-[color:var(--primary)]",
+  wine: "text-[#740000]",
+};
+
   const variants = {
+
     default: `
       mb-8
     `,
@@ -23,9 +36,18 @@ function Title({ children, variant = "default", className = "" }) {
     `,
   };
 
-  const finalClass = `${baseStyle} ${variants[variant] || variants.default} ${className}`;
+  const finalClass = `
+    ${baseStyle}
+    ${colors[color]}
+    ${variants[variant] || variants.default}
+    ${className}
+  `;
 
-  return <h2 className={finalClass}>{children}</h2>;
+  return (
+    <h2 className={finalClass}>
+      {children}
+    </h2>
+  );
 }
 
 export default Title;

@@ -83,7 +83,7 @@ function Projects() {
 
       {/* grid */}
       <div
-        className="
+        className="section-container
           grid
           grid-cols-1
           md:grid-cols-2

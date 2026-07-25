@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function ProjectDetail({ project, onClose }) {
   return (
-    <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50">
+    <div className="section-container fixed inset-0 modal-overlay flex items-center justify-center z-50">
       
       <div
         className="

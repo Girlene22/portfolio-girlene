@@ -19,7 +19,7 @@ function Contact() {
       <Title variant="ExtraLargeMargin">Contato</Title>
 
       {/* Container dos links */}
-      <div className="flex flex-row flex-wrap justify-center gap-8 text-lg">
+      <div className="section-container flex flex-row flex-wrap justify-center gap-8 text-lg">
         {/* Email */}
         <a
           href="mailto:girlene.pereiram@gmail.com"

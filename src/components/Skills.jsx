@@ -33,12 +33,12 @@ function Skills() {
       <Title variant="ExtraLargeMargin">Skills</Title>
 
       {/* Container das skills */}
-      <div className="flex flex-wrap justify-center gap-10 max-w-4xl">
+      <div className="section-container flex flex-wrap justify-center gap-10 max-w-4xl">
         {skills.map((skill) => (
           // Item individual
           <div
             key={skill.name}
-            className="flex flex-col items-center gap-2 text-[--secondary] transition hover:scale-110 hover:text-[color:var(--primary-hover)]"
+            className="flex flex-col items-center gap-2 text-[--secondary] transition hover:scale-110 hover:text-[color:var(--primary)]"
           >
             {/* Ícone */}
             <span className="text-3xl">{skill.icon}</span>
