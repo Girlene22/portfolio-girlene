@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
+import { useTheme } from "../context/ThemeContext";
 
 import cardapioImg from "../assets/cardapio-olinda.png";
 import bugSmashImg from "../assets/bug-smash.png";
@@ -11,6 +12,7 @@ import Title from "./Title";
 import Button from "./Button";
 
 function Projects() {
+  const { theme } = useTheme();
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -75,10 +77,22 @@ function Projects() {
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section id="projects" className=" py-20 px-5">
+    <section
+      id="projects"
+      className={`py-20 px-5 ${
+        theme === "dark"
+          ? "bg-[color:var(--bg-red)]"
+          : "bg-[color:var(--bg-rose)]"
+      }`}
+    >
       {/* título centralizado */}
       <div className="text-center">
-        <Title>Projetos</Title>
+        <Title
+          variant="center"
+          color={theme === "light" ? "primary" : "secondary"}
+        >
+          Projetos
+        </Title>
       </div>
 
       {/* grid */}
@@ -98,15 +112,15 @@ function Projects() {
             key={index}
             onClick={() => setSelectedProject(project)}
             className="
-              cursor-pointer
-              bg-[color:var(--bg)]
-              border
-  border-[color:var(--wine)]
-              rounded-lg
-              overflow-hidden
-              hover:scale-105
-              transition
-            "
+    cursor-pointer
+    bg-[color:var(--bg)]
+    border
+    border-[color:var(--primary)]
+    rounded-lg
+    overflow-hidden
+    hover:scale-105
+    transition
+  "
           >
             {project.image && (
               <img
@@ -128,9 +142,12 @@ function Projects() {
       {/* botão ver mais */}
       {projects.length > 3 && (
         <div className="text-center mt-10">
-          <Button variant="outline" onClick={() => setShowAll(!showAll)}>
-  {showAll ? "Ver menos" : "Ver mais projetos"}
-</Button>
+          <Button
+            variant={theme === "dark" ? "outlineGold" : "outline"}
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? "Ver menos" : "Ver mais projetos"}
+          </Button>
         </div>
       )}
 

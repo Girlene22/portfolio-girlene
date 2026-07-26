@@ -23,11 +23,10 @@ function Hero() {
       className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-10 gap-10 pt-48 md:pt-0"
     >
       {/* Esferas Mobile */}
-      <div className="absolute top-0 left-0 w-full h-screen md:hidden pointer-events-none z-0 flex justify-center items-start border-2 border-blue-500 overflow-hidden">
-  <div className="w-[80vw]">
-    <Spheres />
-  </div>
-</div>
+      {/* Esferas Mobile */}
+      <div className="absolute top-0 left-0 w-full h-screen md:hidden pointer-events-none z-0 flex justify-center items-start overflow-hidden">
+        <Spheres />
+      </div>
 
       {/* Texto */}
       <div className="hero-text relative z-10 max-w-md mx-auto md:mx-0 text-left px-6 sm:px-0">

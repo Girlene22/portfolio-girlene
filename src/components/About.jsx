@@ -35,8 +35,7 @@ function About() {
         text-center
         md:text-left
         overflow-hidden
-        bg-[var(--bg-rose)]
-        dark:!bg-[#740000]
+        bg-[var(--bg-red)]
       "
     >
       {/* Marca d'água */}
@@ -64,7 +63,6 @@ function About() {
 
       {/* Conteúdo */}
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
-
         {/* Foto */}
         <div className="shrink-0">
           <img
@@ -75,10 +73,12 @@ function About() {
         </div>
 
         {/* Texto sobre */}
-        <div className="max-w-xl text-[color:var(--primary)]">
-         <Title color="wine">
-  Sobre mim
-</Title>
+        <div
+          className={`max-w-xl ${
+            isDark ? "text-white" : "text-[color:var(--primary)]"
+          }`}
+        >
+          <Title color={isDark ? "secondary" : "primary"}>Sobre mim</Title>
 
           <p className="mb-4">
             Sou desenvolvedora front-end com foco em criar interfaces modernas,
@@ -87,8 +87,9 @@ function About() {
           </p>
 
           <p>
-            Tenho facilidade em aprender novas tecnologias e estou sempre buscando
-            evoluir minhas habilidades para entregar soluções cada vez melhores.
+            Tenho facilidade em aprender novas tecnologias e estou sempre
+            buscando evoluir minhas habilidades para entregar soluções cada vez
+            melhores.
           </p>
         </div>
       </div>

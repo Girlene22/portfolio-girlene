@@ -5,7 +5,6 @@ function Button({
   variant = "primary",
   target = "_self",
 }) {
-
   const baseStyle = `
     px-4
     py-2
@@ -16,7 +15,6 @@ function Button({
   `;
 
   const variants = {
-
     primary: `
       bg-[color:var(--primary)]
       text-white
@@ -32,6 +30,15 @@ function Button({
       hover:bg-[color:var(--primary)]
       hover:text-white
     `,
+
+    outlineGold: `
+  border
+  border-[color:var(--secondary)]
+  text-[color:var(--secondary)]
+  hover:border-[color:var(--primary)]
+  hover:bg-[color:var(--bg-rose)]
+  hover:text-[color:var(--primary)]
+`,
 
     link: `
       text-sm

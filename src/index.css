@@ -4,11 +4,9 @@
 /* VARIÁVEIS DE TEMA */
 /* ===================== */
 
-
 /* LIGHT MODE DEFAULT */
 
 :root {
-
   --bg: #ffffff;
   --bg-rose: #f7d0d0;
 
@@ -25,25 +23,24 @@
 
   --header-bg: rgba(244, 114, 182, 0.15);
 
-  --border: rgba(0,0,0,0.08);
+  --border: rgba(0, 0, 0, 0.08);
 
   --modal-bg: #ffffff;
 
   --button-text: #ffffff;
 
-  --shadow: rgba(0,0,0,0.08);
+  --shadow: rgba(0, 0, 0, 0.08);
 
   --input-bg: #ffffff;
-
 }
 /* DARK MODE */
 
 .dark {
-
   /* fundo geral */
   --bg: #000000ff;
   --bg-soft: #111111;
-  --bg-rose: #740000;
+  --bg-red: #740000;
+  --bg-rose: #f7d0d0;
 
   /* textos */
   --text: #ffffff;
@@ -60,10 +57,10 @@
   --surface-soft: #181818;
 
   /* header */
-  --header-bg: rgba(18,18,18,0.75);
+  --header-bg: rgba(18, 18, 18, 0.75);
 
   /* bordas */
-  --border: rgba(255,255,255,0.08);
+  --border: rgba(255, 255, 255, 0.08);
 
   /* modal */
   --modal-bg: #101010;
@@ -72,22 +69,17 @@
   --button-text: #ffffff;
 
   /* sombra */
-  --shadow: rgba(0,0,0,0.4);
+  --shadow: rgba(0, 0, 0, 0.4);
 
   /* input */
   --input-bg: #0f0f0f;
 }
-
-
-
-
 
 /* ===================== */
 /* BASE */
 /* ===================== */
 
 body {
-
   background-color: var(--bg);
 
   color: var(--text);
@@ -95,23 +87,17 @@ body {
   transition:
     background 0.3s,
     color 0.3s;
-
 }
-
 
 /* Container global */
 
 .section-container {
-
   @apply w-full max-w-md mx-auto md:max-w-6xl px-6 md:px-10;
-
 }
-
 
 /* textura de fundo */
 
 body::before {
-
   content: "";
 
   position: fixed;
@@ -123,16 +109,12 @@ body::before {
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
 
   opacity: 0.04;
-
 }
-
 
 /* scroll suave */
 
 html {
-
   scroll-behavior: smooth;
-
 }
 
 /* ===================== */
@@ -140,7 +122,6 @@ html {
 /* ===================== */
 
 .header {
-
   position: fixed;
 
   top: 0;
@@ -164,36 +145,23 @@ html {
   border-bottom: 1px solid var(--border);
 
   z-index: 50;
-
 }
 
-
 .header-theme {
-
   background: var(--header-bg);
 
   backdrop-filter: blur(10px);
-
 }
-
 
 .header-theme .nav-link {
-
   color: var(--text);
-
 }
-
 
 .header-theme .nav-link:hover {
-
   color: var(--primary);
-
 }
 
-
 /* menu */
-
-
 
 /* LIGHT - vinho com scale */
 :root:not(.dark) .nav-link {
@@ -213,33 +181,25 @@ html {
   color: var(--primary);
 }
 
-
 .logo {
-
   font-weight: bold;
 
   font-size: 1.2rem;
 
   color: var(--primary);
-
 }
 
-
 .logo-img {
-
   width: 50px;
 
   height: auto;
-
 }
-
 
 /* ===================== */
 /* HERO */
 /* ===================== */
 
 .hero {
-
   display: flex;
 
   align-items: center;
@@ -251,41 +211,29 @@ html {
   padding: 0 5%;
 
   margin-top: 80px;
-
 }
-
 
 .hero-text {
-
   max-width: 500px;
-
 }
 
-
 .hero-image {
-
   width: 400px;
 
   height: 400px;
-
 }
 
-
 .hero-image img {
-
   width: 100%;
 
   height: auto;
-
 }
-
 
 /* ===================== */
 /* SOBRE */
 /* ===================== */
 
 .about {
-
   display: flex;
 
   align-items: center;
@@ -295,34 +243,25 @@ html {
   padding: 100px 5%;
 
   gap: 40px;
-
 }
 
-
 .about-image {
-
   width: 300px;
 
   height: 300px;
 
   background-color: var(--surface);
-
 }
-
 
 .about-text {
-
   max-width: 500px;
-
 }
-
 
 /* ===================== */
 /* CARDS */
 /* ===================== */
 
 .card-theme {
-
   background: var(--surface);
 
   border: 1px solid var(--border);
@@ -330,16 +269,11 @@ html {
   box-shadow: 0 8px 25px var(--shadow);
 
   transition: 0.3s;
-
 }
-
 
 .card-theme:hover {
-
   transform: translateY(-4px);
-
 }
-
 
 /* ===================== */
 /* BOTÕES */
@@ -348,7 +282,6 @@ html {
 /* botão principal */
 
 .btn-primary {
-
   background: var(--primary);
 
   color: white;
@@ -356,23 +289,17 @@ html {
   border: 1px solid var(--primary);
 
   transition: 0.3s;
-
 }
 
-
 .btn-primary:hover {
-
   background: var(--primary-hover);
 
   color: white;
-
 }
-
 
 /* botão outline */
 
 .btn-outline {
-
   background: transparent;
 
   color: var(--primary);
@@ -380,27 +307,21 @@ html {
   border: 1px solid var(--primary);
 
   transition: 0.3s;
-
 }
 
-
 .btn-outline:hover {
-
   background: var(--primary);
 
   color: white;
 
   border-color: var(--primary);
-
 }
-
 
 /* ===================== */
 /* INPUTS */
 /* ===================== */
 
 .input-theme {
-
   background: var(--input-bg);
 
   color: var(--text);
@@ -408,47 +329,35 @@ html {
   border: 1px solid var(--border);
 
   transition: 0.3s;
-
 }
-
 
 .input-theme::placeholder {
-
   color: var(--text-soft);
-
 }
-
 
 /* ===================== */
 /* MODAL */
 /* ===================== */
 
 .modal-overlay {
-
-  background: rgba(0,0,0,0.6);
-
+  background: rgba(0, 0, 0, 0.6);
 }
 
-
 .modal-theme {
-
   background: var(--modal-bg);
 
   color: var(--text);
 
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary);
 
   box-shadow: 0 10px 40px var(--shadow);
-
 }
-
 
 /* ===================== */
 /* FOOTER */
 /* ===================== */
 
 .footer-theme {
-
   background: var(--header-bg);
 
   border-top: 1px solid var(--border);
@@ -456,36 +365,27 @@ html {
   color: var(--text-soft);
 
   backdrop-filter: blur(6px);
-
 }
-
 
 /* hover footer */
 
 .footer-theme button:hover {
-
   color: var(--primary);
-
 }
-
 
 /* ===================== */
 /* ESFERAS HERO */
 /* ===================== */
 
 .perspective {
-
   perspective: 900px;
 
   touch-action: none;
-
 }
-
 
 /* base */
 
 .sphere {
-
   position: absolute;
 
   border-radius: 50%;
@@ -498,54 +398,95 @@ html {
 
   left: 0;
 
-  transform: translate3d(0,0,0);
-
+  transform: translate3d(0, 0, 0);
 }
-
 
 /* GOLD */
 
 .sphere-gold {
-
   width: 120px;
 
   height: 120px;
 
   background:
-    radial-gradient(circle at 28% 28%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.65) 8%, rgba(255,255,255,0.15) 16%, transparent 22%),
-    radial-gradient(circle at 35% 35%, #fff4c9 0%, #f2d46b 25%, #d4af37 55%, #b8962e 72%, #7a651f 100%),
-    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.18), transparent 45%);
-
+    radial-gradient(
+      circle at 28% 28%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.65) 8%,
+      rgba(255, 255, 255, 0.15) 16%,
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 35% 35%,
+      #fff4c9 0%,
+      #f2d46b 25%,
+      #d4af37 55%,
+      #b8962e 72%,
+      #7a651f 100%
+    ),
+    radial-gradient(
+      circle at 75% 70%,
+      rgba(255, 255, 255, 0.18),
+      transparent 45%
+    );
 }
-
 
 /* WINE */
 
 .sphere-wine {
-
   width: 110px;
 
   height: 110px;
 
   background:
-    radial-gradient(circle at 30% 28%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.35) 10%, rgba(255,255,255,0.08) 18%, transparent 26%),
-    radial-gradient(circle at 38% 38%, #b30018 0%, #8f0013 28%, #740000ff 55%, #520000 75%, #2b0000 100%),
-    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.12), transparent 50%);
-
+    radial-gradient(
+      circle at 30% 28%,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.35) 10%,
+      rgba(255, 255, 255, 0.08) 18%,
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 38% 38%,
+      #b30018 0%,
+      #8f0013 28%,
+      #740000ff 55%,
+      #520000 75%,
+      #2b0000 100%
+    ),
+    radial-gradient(
+      circle at 75% 70%,
+      rgba(255, 255, 255, 0.12),
+      transparent 50%
+    );
 }
-
 
 /* ROSE */
 
 .sphere-rose {
-
   width: 80px;
 
   height: 80px;
 
   background:
-    radial-gradient(circle at 28% 28%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.45) 12%, rgba(255,255,255,0.12) 20%, transparent 30%),
-    radial-gradient(circle at 40% 40%, #ffd9df 0%, #f0aab4 30%, #e08d9a 55%, #b96b78 78%, #7a434d 100%),
-    radial-gradient(circle at 70% 75%, rgba(255,255,255,0.15), transparent 55%);
-
+    radial-gradient(
+      circle at 28% 28%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.45) 12%,
+      rgba(255, 255, 255, 0.12) 20%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      #ffd9df 0%,
+      #f0aab4 30%,
+      #e08d9a 55%,
+      #b96b78 78%,
+      #7a434d 100%
+    ),
+    radial-gradient(
+      circle at 70% 75%,
+      rgba(255, 255, 255, 0.15),
+      transparent 55%
+    );
 }

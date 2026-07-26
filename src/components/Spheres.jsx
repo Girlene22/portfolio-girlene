@@ -1,81 +1,130 @@
 import { useEffect, useRef } from "react";
 
+const SPHERE_CONFIG = [
+  {
+    className: "sphere-gold",
+    xRatio: 0.095,
+    yRatio: 0.095,
+    vx: 1.2,
+    vy: 1,
+    rRatio: 0.143,
+  },
+  {
+    className: "sphere-wine",
+    xRatio: 0.619,
+    yRatio: 0.619,
+    vx: -1,
+    vy: 1.1,
+    rRatio: 0.131,
+  },
+  {
+    className: "sphere-rose",
+    xRatio: 0.619,
+    yRatio: 0.19,
+    vx: 1,
+    vy: -1.2,
+    rRatio: 0.095,
+  },
+];
+
 function Spheres() {
   const containerRef = useRef(null);
   const spheresRef = useRef([]);
 
   useEffect(() => {
     const container = containerRef.current;
+    let width = container.offsetWidth;
+    let height = container.offsetHeight;
 
-    const spheres = [
-      { el: null, x: 40, y: 40, vx: 1.2, vy: 1, r: 60 },   // gold
-      { el: null, x: 260, y: 260, vx: -1, vy: 1.1, r: 55 }, // wine
-      { el: null, x: 260, y: 80, vx: 1, vy: -1.2, r: 40 },  // rose
-    ];
+    // Empurra o container INTEIRO pra baixo do header (não mexe na área interna de movimento)
+    function applyHeaderOffset() {
+      const header = document.querySelector("header");
+      if (header) {
+        container.style.marginTop = `${header.offsetHeight}px`;
+      }
+    }
+    applyHeaderOffset();
+    window.addEventListener("resize", applyHeaderOffset);
+
+    const spheres = SPHERE_CONFIG.map((cfg) => ({
+      el: null,
+      x: width * cfg.xRatio,
+      y: height * cfg.yRatio,
+      vx: cfg.vx,
+      vy: cfg.vy,
+      r: width * cfg.rRatio,
+    }));
 
     spheresRef.current.forEach((el, i) => {
       spheres[i].el = el;
     });
 
+    function applySizes() {
+      spheres.forEach((s) => {
+        if (s.el) {
+          const size = s.r * 2;
+          s.el.style.width = `${size}px`;
+          s.el.style.height = `${size}px`;
+        }
+      });
+    }
+
+    applySizes();
+
+    let rafId;
+
     function animate() {
-      const width = container.offsetWidth;
-      const height = container.offsetHeight;
+      const w = container.offsetWidth;
+      const h = container.offsetHeight;
 
-      const margin = 40; // reduz área de movimento
+      const margin = w * 0.095; // margem uniforme, igual em todos os lados
 
-      // movimento + borda
       spheres.forEach((s) => {
         s.x += s.vx;
         s.y += s.vy;
 
-        // eixo X
         if (s.x <= margin) {
           s.x = margin;
           s.vx *= -1;
         }
 
-        if (s.x >= width - s.r * 2 - margin) {
-          s.x = width - s.r * 2 - margin;
+        if (s.x >= w - s.r * 2 - margin) {
+          s.x = w - s.r * 2 - margin;
           s.vx *= -1;
         }
 
-        // eixo Y
         if (s.y <= margin) {
           s.y = margin;
           s.vy *= -1;
         }
 
-        if (s.y >= height - s.r * 2 - margin) {
-          s.y = height - s.r * 2 - margin;
+        if (s.y >= h - s.r * 2 - margin) {
+          s.y = h - s.r * 2 - margin;
           s.vy *= -1;
         }
       });
 
-      // colisão entre esferas
       for (let i = 0; i < spheres.length; i++) {
         for (let j = i + 1; j < spheres.length; j++) {
           const a = spheres[i];
           const b = spheres[j];
 
-          const dx = (a.x + a.r) - (b.x + b.r);
-          const dy = (a.y + a.r) - (b.y + b.r);
+          const dx = a.x + a.r - (b.x + b.r);
+          const dy = a.y + a.r - (b.y + b.r);
 
           const dist = Math.sqrt(dx * dx + dy * dy);
           const minDist = a.r + b.r;
 
           if (dist < minDist) {
             const angle = Math.atan2(dy, dx);
-
-            // separação
             const overlap = minDist - dist;
 
-            a.x += Math.cos(angle) * overlap / 2;
-            a.y += Math.sin(angle) * overlap / 2;
+            a.x += (Math.cos(angle) * overlap) / 2;
+            a.y += (Math.sin(angle) * overlap) / 2;
 
-            b.x -= Math.cos(angle) * overlap / 2;
-            b.y -= Math.sin(angle) * overlap / 2;
+            b.x -= (Math.cos(angle) * overlap) / 2;
+            b.y -= (Math.sin(angle) * overlap) / 2;
 
-            // impulso (colisão mais natural)
             const force = 0.5;
 
             a.vx += (dx / dist) * force;
@@ -87,17 +136,35 @@ function Spheres() {
         }
       }
 
-      // render
       spheres.forEach((s) => {
         if (s.el) {
           s.el.style.transform = `translate(${s.x}px, ${s.y}px)`;
         }
       });
 
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     }
 
+    const resizeObserver = new ResizeObserver(() => {
+      const newWidth = container.offsetWidth;
+      if (newWidth !== width) {
+        width = newWidth;
+        height = container.offsetHeight;
+        spheres.forEach((s, i) => {
+          s.r = width * SPHERE_CONFIG[i].rRatio;
+        });
+        applySizes();
+      }
+    });
+    resizeObserver.observe(container);
+
     animate();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", applyHeaderOffset);
+    };
   }, []);
 
   return (
@@ -105,7 +172,7 @@ function Spheres() {
       ref={containerRef}
       className="
         relative
-        w-[420px] h-[420px]
+        w-[85vw] max-w-[320px] aspect-square
         md:w-[500px] md:h-[500px]
         perspective
         overflow-hidden

@@ -24,7 +24,7 @@ function ThemeToggle({ size = "md" }) {
     <button
       onClick={toggleTheme}
       className={`
-        relative ${current.track} rounded-full border border-[color:var(--text)]
+        relative ${current.track} rounded-full border border-[color:var(--primary)]
         transition duration-300 flex items-center px-1
         ${theme === "light" ? "bg-[color:var(--primary)]" : "bg-[color:var(--bg-soft)]"}
       `}
